@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+<section class="section_bg">
+</section>
+
+<div class="container">
+  <div *ngIf="hero" class="hero">
+    <div class="hero-img">
+      <img [src]="hero.image.url" alt="">
+    </div>
+    <div class="hero-block">
+    <div class="hero-info">
+      <h2 class="hero-info-title" >{{hero.name}}</h2>
+        <div class="hero-info-block">
+          <p class="hero-info-text">Name: <span>{{hero.biography['full-name'] || 'Nobody knows his name'}}</span></p>
+          <p class="hero-info-text">Gender: <span>{{hero.appearance.gender}}</span></p>
+          <p class="hero-info-text">Race:<span> {{hero.appearance.race}}</span></p>
+          <p class="hero-info-text">Place of birth:<span> {{hero.biography['place-of-birth']}}</span></p>
+          <p class="hero-info-text">Base:<span> {{hero.work.base}}</span></p>
+          <p class="hero-info-text">Team:<span> {{hero.connections['group-affiliation']}}</span></p>
+
+      </div>
+    </div>
+    <div class="hero-info">
+      <h2 class="hero-info-title" >Stats</h2>
+      <div class="hero-info-block">
+        <p class="hero-info-text">Intelligence: <span>{{hero.powerstats.intelligence}}</span></p>
+        <p class="hero-info-text">Strength: <span>{{hero.powerstats.strength}}</span></p>
+        <p class="hero-info-text">Speed: <span>{{hero.powerstats.speed}}</span></p>
+        <p class="hero-info-text">Durability: <span>{{hero.powerstats.durability}}</span></p>
+        <p class="hero-info-text">Power: <span>{{hero.powerstats.power}}</span></p>
+        <p class="hero-info-text">Combat: <span>{{hero.powerstats.combat}}</span></p>
+        </div>
+     </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,103 @@
+.hero__card {
+    display: flex;
+    flex: 0 0 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid black;
+    margin: 10px;
+    background: rgb(53, 53, 53);
+    border-radius: 10px;
+    max-width: 350px;
+    height: 450px;
+    color: #ffffff;
+    padding: 5px;
+    box-shadow: 0px -1px 5px 5px rgba(0,0,0,0.3);
+    transition: all .2s linear;
+    
+    &.slide {
+      animation-name:cardSlide ;
+      animation-duration: 2.5s;
+    }
+      h4 {
+        width: 100%;
+        text-align: center;
+      }
+     &-img {
+       width: 60%;
+  
+        & .hero-img {
+          max-width: 100%;
+          width: 250px;
+          height: 400px;
+          border-radius: 10px;
+          border: 1px solid #ffffff;
+        }
+     }
+    &-info {
+      width: 35%;
+      flex: 1 1;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      font-weight: 400;
+      gap: 5px;
+      padding-bottom: 10px;
+      &-block {
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        border: 1px solid #ffffff;
+        border-radius: 10px;
+      }
+       span {
+         font-weight: 400;
+       }
+       
+    }
+    &-btns{
+        &-view_info {
+            background: transparent;
+            transition: background-color .2s linear;
+    
+            ::ng-deep .mat-stroked-button {
+              color: white;
+              background: rgba(26, 26, 216, 0.92);
+    
+              &:hover {
+                transition: background-color .2s linear;
+                background: rgba(19, 19, 155, 0.92);
+              }
+            }
+          }
+          &-select {
+            background: transparent;
+            transition: background-color .2s linear;
+            ::ng-deep .mat-stroked-button {
+              color: white;
+              background: rgb(208, 18, 18);
+                &:hover {
+                  transition: background-color .2s linear;
+                  background: rgba(171, 14, 14, 0.98);
+                }
+            }
+          }
+    }
+}
+
+.animate:hover {
+  transform: scale(1.02);
+  box-shadow: 0px -1px 5px 5px rgba(0,0,0,.9);
+  transition: all .2s ease-in-out;
+}
+
+.fw-700 {
+  span {
+    font-weight: 700;
+  }
+
+}
+
+.none {
+  display: none;
+}

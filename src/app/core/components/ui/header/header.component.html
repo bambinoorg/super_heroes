@@ -1,0 +1,16 @@
+<header class="header">
+  <div class="header__logo" (click)="goHome()">SuperHeroes</div>
+  <app-button 
+  class="header__battle" 
+  [textDecoration]="'Battles'" 
+  [buttonColor]="'warn'"
+  (click)="goBattle()" ></app-button>
+  <div class="user">
+    <p class="user-number">All {{userName}} heroes : <span>{{userHeores$ | async}}</span></p>
+ 
+  <app-button 
+  *ngIf="userName" 
+  [textDecoration]="userName"
+  (click)="goToUserPage(userName)"></app-button>
+</div>
+</header>

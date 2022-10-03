@@ -1,0 +1,237 @@
+.section_bg {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 94.5vh;
+    background: url("../../../../assets/bg/bg_home.jpg")  no-repeat fixed;
+    background-blend-mode: screen;
+    z-index: -1;
+  }
+
+.battle__wrapper {
+  width: 100%;
+  min-height: 80vh;
+  max-width: 1200px;
+  background: rgb(247, 247, 247);
+  margin: 50px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  border-radius: 10px;
+  position: relative;
+  &-con {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+  }
+   &-find-op {
+    width: 100%;
+   }
+}
+
+
+.choose_hero {
+    display: flex;
+    padding: 78px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid black;
+    margin: 10px;
+    background: rgb(53, 53, 53);
+    border-radius: 10px;
+    max-width: 350px;
+    height: 450px;
+    color: #ffffff;
+    box-shadow: 0px -1px 5px 5px rgba(0,0,0,0.3);
+    transition: all .2s linear;
+    
+  align-items: center;
+  &-btn {
+    padding: 10px;
+    color: #ffffff;
+    font-size: 20px;
+    background: rgb(170, 31, 31);
+    border-radius: 10px;
+    border: none;
+    transition: background .2s ease-in;
+    cursor: pointer;
+      &:hover {
+        transition: background .2s ease-in;
+        background: rgb(134, 24, 24);
+      }
+  }
+}
+
+.opponent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  & .fight {
+      width: 150px;
+      height: 150px;
+  }
+  & .win {
+    position: relative;
+    z-index: 12;
+    background: #ffff;
+    padding: 10px;
+    border-radius: 10px;
+    display: block;
+    color: rgb(26, 161, 26);
+
+  }
+  & .lose {
+    display: block;
+    color: rgb(200, 23, 23);
+
+  }
+  & .search {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(70 70 201);
+ 
+  }
+  & .animated {
+    animation-name: showSearch;
+    animation-duration: 1.5s;
+    animation-iteration-count: 3;
+  }
+  & .animated8 {
+    animation-name: showSearch;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+  }
+
+}
+
+.power{
+  display: flex;
+
+  &-up {
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  &-con {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 50px;
+    background: rgb(206, 206, 206);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  &-btn {
+    background: rgb(53, 53, 53);
+    border-radius: 10px;
+    border: none;
+    color: #ffffff;
+    box-shadow: 0px -1px 3px 3px rgba(0,0,0,0.3);
+    padding: 10px;
+    cursor: pointer;
+    transition: transform .2s linear;
+      &:hover {
+        transition: transform .2s linear;
+        transform: scale(1.05);
+      }
+      &:active {
+        transition: transform .1s linear;
+        transform: translateY(4px);
+      }
+      &:default{
+        transition: transform .1s linear;
+      }
+      &.disabled {
+        transition: opacity .2s linear;
+        opacity: .5;
+        cursor: not-allowed;
+        &:hover {
+          transition: opacity .2s linear;
+          transform: none;
+        }
+      }
+  }
+}
+
+.slide {
+  animation-name:cardSlide ;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.destroy {
+  animation-name: destroyCard;
+  animation-delay: .5s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+.create {
+  animation-name: destroyCard;
+  animation-direction: reverse;
+  animation-duration: 2s;
+
+}
+.restart {
+  animation-name: restart;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.none {
+  display: none;
+}
+
+@keyframes cardSlide {
+  0% {
+    transform: translateX(30%);
+  } 50% {
+    transform: translateX(-40%);
+  }
+  100% {
+    transform: translateX(31%);
+  }
+}
+
+@keyframes showSearch {
+  0% {
+    opacity: 0;
+  } 
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes destroyCard {
+  0% {
+    transform:scale(1) rotate(0deg);
+  } 
+
+  100% {
+    transform:scale(0) rotate(180deg);
+    display: none;
+  }
+}
+
+
+@keyframes restart {
+  0% {
+    transform:translateX(0);
+  } 
+  100% {
+    transform:translateX(80%);
+  }
+}

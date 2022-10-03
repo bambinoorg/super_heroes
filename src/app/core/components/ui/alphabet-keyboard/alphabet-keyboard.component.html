@@ -1,0 +1,5 @@
+<div class="keyboard">
+  <ng-container *ngFor="let letter of absList">
+    <button (click)="sendLetter(letter)" >{{letter}}</button>
+  </ng-container>
+</div>

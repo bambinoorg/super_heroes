@@ -1,0 +1,61 @@
+<app-header></app-header>
+<app-session-modal></app-session-modal>
+<section class="section_bg">
+</section>
+    <div class="container">
+        <div class="user__block">
+            <mat-tab-group mat-align-tabs="center">
+                <mat-tab label="Heroes List">
+
+                        <div 
+                        class="user__block-heroes"
+                        *ngIf="allUserHeroes.length > 0; else heroChose">
+                        <app-hero-card *ngFor="let hero of allUserHeroes"
+                        [hero]="hero"
+                        [animation]="true"
+                        [noneBtnSelect]="true"
+                        (currentHero)="goBattle(hero)"
+                        (deleteHero)="deleteHero(hero)"
+                        
+                        ></app-hero-card>
+                        </div>
+   
+                </mat-tab>
+                <mat-tab label="History">
+                <app-history-table ></app-history-table>
+               
+              </mat-tab>
+
+                <mat-tab label="Power Ups" >
+                  <ng-container *ngIf="powerUps.length > 0">
+                    <div class="power-con">
+                      
+                    <div class="power" *ngFor="let power of powerUps">
+                      <div class="power-up" >
+                        <button class="power-btn">
+                        <div class="power-title">Increase your {{power.title}}</div>
+                      </button>
+                        <div class="power-quantity"> Left: {{power.quantity}}</div>     
+                      </div>
+                    </div>
+                  </div>
+                  </ng-container>
+
+                </mat-tab>
+                
+              </mat-tab-group>
+             
+        </div>
+
+    </div>
+
+    <ng-template #heroChose>
+        <div class="btn__con">
+            <p>You don't have any heroes...</p>
+            <div class="btn" (click)="goToHomePage()">
+                Chose your hero
+                <img class="btn-img" src="./assets/img/arrowdown.png" alt="arrow">
+            </div>
+           
+        </div>
+    </ng-template>

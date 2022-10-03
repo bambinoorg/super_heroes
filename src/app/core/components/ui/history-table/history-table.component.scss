@@ -1,0 +1,33 @@
+.mat-elevation-z8 {
+    width: 100%;
+}
+
+.pointer {
+    cursor: pointer;
+
+    &:hover .arrow {
+        opacity: 1;
+        transition: all .2s linear;
+    }
+}
+
+.arrow {
+ width: 10px;
+ height: 10px;
+ margin-right: 2px;
+ transition: all .2s linear;
+ opacity: 0;
+    &.rotate {
+        transition: transform .2s linear;
+        transform: rotateX(180deg);
+    }
+}
+
+
+.clear-btn {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 20px;
+  }
+  
+  

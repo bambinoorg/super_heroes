@@ -1,0 +1,25 @@
+.keyboard {
+  padding: 10px;
+  display: flex;
+  flex-wrap:wrap ;
+  gap: 10px;
+  width: 100%;
+  max-width: 170px;
+  background: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px 6px #000000;
+    button {
+      width: 40px;
+      height: 40px;
+      background: rgba(159, 21, 21, 0.44);
+      border-radius: 10px;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      transition: background-color .2s linear;
+        &:hover {
+          background: rgba(159, 21, 21, 0.76);
+          transition: background-color .2s linear;
+        }
+    }
+}

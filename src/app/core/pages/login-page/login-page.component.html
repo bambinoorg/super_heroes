@@ -1,0 +1,40 @@
+<app-ironman></app-ironman>
+<div class="container"  (keyup.enter)="loginUser()"Y>
+  <div class="login__wrapper">
+    <div class="login__wrapper-window">
+      <div class="login__wrapper-login">
+        <div  class="login__wrapper-login-div">
+          Create a new account ?
+          <app-button
+
+            [textDecoration]="'Create'"
+            [routerLink]="'/registration'"
+             >
+          </app-button>
+          </div>
+          <app-input
+            [class.red]="loginForm.get('email')?.invalid"
+            [textDecoration]="'Email'"
+            [formControlCustom]="loginForm.get('email') | getControl"
+          ></app-input>
+          <app-input
+            [class.red]="loginForm.get('password')?.invalid"
+            [textDecoration]="'Password'"
+            [typeText]="'text'"
+            [formControlCustom]="loginForm.get('password') | getControl"
+          ></app-input>
+        <p class="error"   #userUndefined >User doesn't exist*</p>
+        </div>
+      <app-button
+       
+        (click)="loginUser()"
+        [disabled]="loginForm.invalid"
+        [textDecoration]="'Log in'"
+        [buttonColor]="'warn'" ></app-button>
+      </div>
+    </div>
+  </div>
+
+
+
+

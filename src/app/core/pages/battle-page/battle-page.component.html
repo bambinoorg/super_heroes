@@ -1,0 +1,118 @@
+<app-header></app-header>
+
+<section class="section_bg">
+</section>
+<app-session-modal></app-session-modal>
+<div class="container">
+    <div class="battle__wrapper">
+      <div class="battle__wrapper-con">
+        
+        <app-hero-card
+        [hero]="userHero" 
+        [class.slide]="find"
+        [noneBtnBattle]="true"
+        [noneBtnSelect]="true"
+        [noneBtnDelete]="true"
+        [class.destroy]="battleResult==='Lose'"
+        [class.restart]="battleResult==='Win'"
+        #heroCard 
+        *ngIf="userHero; else chooseHero">
+      </app-hero-card>
+     
+      <ng-container *ngIf="find && !stop; else null" >
+          <div class="opponent">
+          <p class="search animated8">Search for an opponent...</p>
+          <mat-progress-spinner
+          class="example-margin"
+          [color]="'primary'"
+          [mode]="'indeterminate'"
+          [value]="50">
+      </mat-progress-spinner>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="fight; else null" >
+        <div class="opponent">
+          <img class="fight animated " src="assets/img/crossed-swords.png" alt="swords">
+      </div>
+    </ng-container>
+
+<ng-container *ngIf="!fight">
+    <ng-container [ngSwitch]="battleResult" >
+
+      <ng-container *ngSwitchCase="'Win'">
+        <div class="opponent">
+          <h2 class="win animated">You WIN</h2>
+       </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'Lose'">
+        <div class="opponent">
+          <h2 class="lose animated">You Lose</h2>
+       </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase='null'>
+      </ng-container>
+  
+  </ng-container>
+</ng-container>
+     
+        <app-hero-card
+        *ngIf="opponentIsFind"
+        [hero]="heroOpponent"
+        [noneBtnBattle]="true"
+        [noneBtnSelect]="true"
+        [noneBtnDelete]="true"
+        [class.destroy]="battleResult==='Win'"
+        ></app-hero-card>
+
+        </div >
+        <ng-container *ngIf="!find && !fight && userHero !== null;" >
+        <app-button 
+        [class.none]="battleResult === 'Lose'"
+        class="battle__wrapper--find-op" 
+        [textDecoration]="'Find Opponent'"
+        [buttonColor]="'warn'"
+        (click)="goBattle()"
+         >
+        </app-button>  
+        </ng-container>
+        <ng-container *ngIf="find && !fight && userHero !== null " >
+          <app-button class="battle__wrapper--find-op" 
+          [textDecoration]="'Stop Search'"
+          [buttonColor]="'warn'"
+          (click)="stopSeacrh()"
+           ></app-button>  
+        </ng-container>
+        <div class="power-con">
+        <div class="power"
+         *ngFor="let power of powerUps; trackBy: trackByFn"
+        >
+          <div class="power-up"  >
+            <button class="power-btn" 
+              [class.disabled]="isClicked || power.quantity === 0 "
+              [disabled]="isClicked" 
+              
+              (click)="upgradeHero(power)">
+            <div class="power-title">Increase your {{power.title}}</div>
+          </button>  
+            <div class="power-quantity"> Left: {{power.quantity}}</div>  
+          </div>
+        </div>
+        </div>     
+</div>
+
+<ng-template #stopSearch  >
+  
+</ng-template>
+
+<ng-template #chooseHero>
+  <div 
+  class="hero__card choose_hero"
+  [class.create]="battleResult==='Lose'">
+    <div>
+      <button (click)="goToUserPage(userName)" class="choose_hero-btn">Chose your Hero</button>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,49 @@
+<app-ironman  ></app-ironman>
+
+<div class="container">
+  <div class="registration__wrapper">
+    <div class="registration__wrapper-window">
+      <div class="registration__wrapper-login">
+        <div  class="registration__wrapper-login-div">
+          Already have an account ?
+          <app-button
+
+            [textDecoration]="'Log in'"
+            [routerLink]="'/login'" >
+          </app-button>
+        </div>
+      </div>
+      <app-input
+        [textDecoration]="'Username'"
+        [formControlCustom]="registrationForm.get('username') | getControl">
+      </app-input>
+      <app-input
+        [class.red]="registrationForm.get('email')?.invalid"
+        [textDecoration]="'Email'"
+        [formControlCustom]="registrationForm.get('email') | getControl"
+       ></app-input>
+      <app-input
+        [class.red]="registrationForm.get('password')?.invalid"
+        [textDecoration]="'Password'"
+        [typeText]="'text'"
+        [formControlCustom]="registrationForm.get('password') | getControl"
+        ></app-input>
+      <app-input
+        [class.red]="registrationForm.get('confirmPassword')?.invalid"
+        [textDecoration]="'Confirm Password'"
+        [typeText]="'text'"
+        [formControlCustom]="registrationForm.get('confirmPassword') | getControl"
+        >
+      </app-input>
+      <p class="error"
+         *ngIf="registrationForm.hasError('passErr')"
+
+      >{{registrationForm.getError('passErr')}}</p>
+      <app-button
+        (click)="registration()"
+        [disabled]="!registrationForm.valid"
+        [textDecoration]="'Register'"
+        [buttonColor]="'warn'" ></app-button>
+    </div>
+  </div>
+</div>

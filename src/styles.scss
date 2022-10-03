@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: rgba(0, 0, 0, 0.83);
+
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+  background: rgba(137, 136, 136, 0.54);
+  border-radius: 15px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(21, 21, 21, 0.82); /* цвет бегунка */
+  border-radius: 20px; /* округлось бегунка */
+}

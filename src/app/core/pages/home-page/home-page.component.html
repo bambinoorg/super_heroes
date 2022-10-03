@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+<section class="section_bg">
+</section>
+  <div class="container"> 
+      <app-session-modal></app-session-modal>
+    <div class="heroes">
+      <div class="heroes__search">
+        <button class="dropdown__keyboard" (click)="showKeyboard()" >{{ buttonLetter || 'A'}}</button>
+        <div class="dropdown__keyboard__wrapper" >
+          <app-alphabet-keyboard (letterEvent)="lala($event)"   *ngIf="keyboardFlag"></app-alphabet-keyboard>
+        </div>
+
+        <div class="heroes__search__input">
+          <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Search your hero...</mat-label>
+            <input (keyup.enter)="getSearchHero()" [formControl]="searchHero" matInput type="text" >
+            <button (click)="getSearchHero()" matSuffix mat-icon-button  aria-label="Search">
+              <mat-icon>search</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+        <div class="heroes heroes-card">
+          <h3>{{ searchLetter || 'Chose your Hero'}}</h3>
+          <div *ngFor="let hero of heroes" >
+            <app-hero-card
+            [hero]="hero"
+            [noneBtnBattle]="true"
+            [noneBtnDelete]="true"
+            [animation]="true"
+            (currentHero)="addToSelectedHeroes($event)"
+            >
+            </app-hero-card>
+              </div>
+            </div>        
+          </div>
+
+
+
+
+

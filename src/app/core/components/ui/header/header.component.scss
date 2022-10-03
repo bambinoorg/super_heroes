@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 40px;
+  background: rgba(255, 255, 255, 0.42);
+  border-radius: 5px;
+    &__logo {
+      color: #ffff;
+      cursor: pointer;
+    }
+}
+
+::ng-deep app-button {
+  background: rgba(255, 255, 255, 0.48);
+  border-radius: 5px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  &-number {
+    color: #ffff;
+  }
+}

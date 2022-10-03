@@ -1,0 +1,50 @@
+
+<div class="hero__card" [class.animate]="animation" >
+    <h4>{{hero.name}}</h4>
+    <div class="hero__card-img" >
+      <img class="hero-img" [src]="hero.image.url" alt="hero">
+    </div>
+    <div class="hero__card-info">
+        <app-button
+        [class.none]="noneBtnSelect"
+        class="hero__card-btns-select" 
+        [textDecoration]="'Select'"
+        (click)="sendHero(hero)"
+        ></app-button>
+        <app-button
+        [class.none]="noneBtnBattle"
+        class="hero__card-btns-select" 
+        [textDecoration]="'Go to battle'"
+        (click)="sendHero(hero)"
+        ></app-button>
+        <app-button
+        [class.none]="noneBtnDelete"
+        [textDecoration]="'Delete Hero'"
+        (click)="sendDeleteHero(hero)"
+        [buttonColor]="'warn'"
+        class="fw-700"
+        ></app-button>
+
+      <h4>STATS</h4>
+
+        <div>{{'intelligence' | titlecase}} : <span>{{hero.powerstats.intelligence}}</span></div>
+
+        <div>{{'strength' | titlecase}} : <span>{{hero.powerstats.strength}}</span></div>
+
+        <div>{{'speed' | titlecase}} : <span>{{hero.powerstats.speed}}</span></div>
+
+        <div>{{'durability' | titlecase}} : <span>{{hero.powerstats.durability}}</span></div>
+
+        <div>{{'power' | titlecase}} : <span>{{hero.powerstats.power}}</span></div>
+
+        <div>{{'combat' | titlecase}} : <span>{{hero.powerstats.combat}}</span></div>
+
+       <div  class="hero__card-btns">
+        <app-button
+          class="hero__card-btns-view_info"
+          [textDecoration]="'View Info'"
+          (click)="goToDetails(hero)">
+        </app-button>
+      </div>
+    </div>
+  </div>
